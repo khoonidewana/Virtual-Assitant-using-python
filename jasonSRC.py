@@ -18,7 +18,8 @@ def wishme():
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         speak("Good Morning!")
-
+    elif hour>=12 and hour<18:
+        speak("Good Afternoon!")
     else:
         speak("Good Evening!")
     speak("Hey Jason this side   How can I help you")       
@@ -43,6 +44,13 @@ def takeCommand():
         return "None" 
     return query
 
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('youremail@gmail.com', 'your-password')
+    server.sendmail('youremail@gmail.com', to, content)
+    server.close()
 
 
 if __name__ == "__main__":
@@ -58,6 +66,15 @@ if __name__ == "__main__":
             speak("According to Wikipedia")
             print(results)
             speak(results)
+        elif 'open youtube' in query:
+            webbrowser.open("youtube.com")
+
+        elif 'open google' in query:
+            webbrowser.open("google.com")
+
+        elif 'open stackoverflow' in query:
+            webbrowser.open("stackoverflow.com")
+
         
         elif 'play music' in query:
             music_dir = 'D:\\MOVIES'
