@@ -66,6 +66,10 @@ if __name__ == "__main__":
             speak("According to Wikipedia")
             print(results)
             speak(results)
+            
+        elif 'hi' in query or 'hello' in query:
+            speak('Hello sir, how can I help you?')
+            
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
 
@@ -98,4 +102,22 @@ if __name__ == "__main__":
                 speak("Email has been sent!")
             except Exception as e:
                 print(e)
-                speak("Sorry my friend harry bhai. I am not able to send this email")
+                speak("I am really sorry. I am not able to send this email")
+                
+        elif 'timer' in query or 'stopwatch' in query:
+            speak("For how many minutes?")
+            timer_time = takeCommand()
+            timer_time = timer_time.replace('minutes', '')
+            timer_time = timer_time.replace('minute', '')
+            timer_time = timer_time.replace('for', '')
+
+            timer_time = float(timer_time)
+            timer_time = timer_time * 60
+            speak(f'I will remind you in {timer_time} seconds')
+
+            time.sleep(timer_time)
+            speak('Your time has been finished sir')
+        
+        elif 'bye' in query:
+            speak('Have a great time, bye')
+           
