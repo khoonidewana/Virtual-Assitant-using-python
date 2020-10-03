@@ -72,6 +72,9 @@ if __name__ == "__main__":
             
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
+        
+        elif 'open spotify' in query:
+            webbrowser.open("open.spotify.com")
 
         elif 'open google' in query:
             webbrowser.open("google.com")
